@@ -22,9 +22,17 @@ const store = createStore({
     firstName2: (state) => (c) => {
       // Tambien se le pueden pasar parametros, convirtiendolo a una funcion
       // Para que se comporte de una forma dependiendo del parametro
-      return state.username.split('').reverse().join(c)
+      return state.username.split('').join(c)
     }
   },
+  mutations: {
+    /**
+     * Sirve para actualizar un state de forma sincrona
+     */
+    updateUsername(state, username) {
+      state.username = username
+    }
+  }
 })
 
 export default store
