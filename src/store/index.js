@@ -32,6 +32,19 @@ const store = createStore({
     updateUsername(state, username) {
       state.username = username
     }
+  },
+  actions: {
+    /**
+     * Se usa para ejecutar codigo igual para actualizar states
+     * tambien de forma asyncrona, aqui se puede aplicar la logica del negocio
+     * puede tener una llamada al backend
+     * Pueden ser encadenadas y ejecutar otras action, ejecutando dispatch dentro del action
+     */
+    updateUsername({ commit, state }, username) {
+      // Sirve para saber en que momento suceden las cosas
+      console.log('update username action!', state.username, username)
+      commit('updateUsername', username)
+    }
   }
 })
 
