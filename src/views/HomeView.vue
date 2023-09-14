@@ -5,7 +5,7 @@ import ProfileCard from '@/components/ProfileCard.vue'
 import ChatItem from '@/components/ChatItem.vue'
 
 // Se usa para mapear el state del vuex
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 // import store from '@/store/store.js'
 
 export default {
@@ -37,7 +37,9 @@ export default {
   },
   computed: {
     foo() { },
+    // Traemos los getters y states como una lista 
     ...mapState(['username']),
+    ...mapGetters(['firstName2']),
   }
 
 }
@@ -49,7 +51,7 @@ export default {
     <InputSearch v-model="search" />
     <ProfileCard
       :avatar="profile.avatar"
-      :username="username"
+      :username="firstName2('-')"
       :status="profile.status"
     />
     <RouterLink to="/" class="channels-title">Canales <Icon icon="carbon:hashtag" /></RouterLink>
