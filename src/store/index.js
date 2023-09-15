@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { COMMIT_UPDATE_USERNAME } from '@/common/mutation-types.js'
 
 const store = createStore({
   state() {
@@ -29,7 +30,7 @@ const store = createStore({
     /**
      * Sirve para actualizar un state de forma sincrona
      */
-    updateUsername(state, username) {
+    [COMMIT_UPDATE_USERNAME](state, username) {
       state.username = username
     }
   },
@@ -40,10 +41,11 @@ const store = createStore({
      * puede tener una llamada al backend
      * Pueden ser encadenadas y ejecutar otras action, ejecutando dispatch dentro del action
      */
-    updateUsername({ commit, state }, username) {
-      // Sirve para saber en que momento suceden las cosas
+    async updateUsername({ commit, state }, username) {
       console.log('update username action!', state.username, username)
-      commit('updateUsername', username)
+      const user = await getUser(1)
+      console.log(user)
+      commit(COMMIT_UPDATE_USERNAME, user.username)
     }
   }
 })
