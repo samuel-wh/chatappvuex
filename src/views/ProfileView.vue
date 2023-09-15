@@ -7,7 +7,7 @@
 			 */
 			foo() {},
 			// Traemos los getters y states como una lista
-			...mapState(["username"]),
+      ...mapState({ username: (state) => state.profile.username }),
 		},
 		methods: {
 			/**
