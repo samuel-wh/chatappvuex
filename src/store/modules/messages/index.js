@@ -10,7 +10,7 @@ const module = {
           author: 1,
           message: 'Hola 👀',
           timestamp: new Date().toLocaleTimeString(),
-          read: true,
+          read: false,
           channelId: 1
         },
         {
