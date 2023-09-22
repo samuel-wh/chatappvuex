@@ -3,7 +3,6 @@ const getters = {
     return state.messages.filter((message) => message.channelId === parseInt(channelId))
   },
   getUnreadMessages: (state, getters) => (channelId) => {
-    console.log('getUnreadMessages!', channelId)
     return getters.getMessages(channelId).filter((message) => message.read === false).length
   }
 }
