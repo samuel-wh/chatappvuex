@@ -14,8 +14,16 @@ const module = {
           channelId: 1
         },
         {
-          id: 1,
+          id: 2,
           author: 1,
+          message: 'Canal 2',
+          timestamp: new Date().toLocaleTimeString(),
+          read: true,
+          channelId: 2
+        },
+        {
+          id: 3,
+          author: 2,
           message: 'Canal 2',
           timestamp: new Date().toLocaleTimeString(),
           read: true,
